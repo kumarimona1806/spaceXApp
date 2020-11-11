@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     if (localStorage.getItem('filterValue')) {
       this.filterObject = JSON.parse(localStorage.getItem('filterValue'));
     }
-    this.httpServiceService.GetData(this.filterObject).subscribe({
+    this.httpServiceService.GetResponseData(this.filterObject).subscribe({
       next: this.handleUpdateResponse.bind(this),
       error: (error) => {
         this.spinner.hide();
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
   public filterData(filterValue?: string): void {
     this.spinner.show();
     localStorage.setItem('filterValue', JSON.stringify(this.filterObject));
-    this.httpServiceService.GetData(this.filterObject).subscribe({
+    this.httpServiceService.GetResponseData(this.filterObject).subscribe({
       next: this.handleUpdateResponse.bind(this),
       error: (error) => {
         this.spinner.hide();

@@ -12,7 +12,7 @@ export class HttpServiceService {
    * @description call api based on applied filter
    * @param filterValues recive applied filters
    */
-  public GetData(filterValues: any): Observable<any> {
+  public GetResponseData(filterValues: any): Observable<any> {
     let url = 'https://api.spaceXdata.com/v3/launches?limit=100';
     if (filterValues['launch_year']) {
       url = `${url}&launch_year=${filterValues['launch_year']}`;
